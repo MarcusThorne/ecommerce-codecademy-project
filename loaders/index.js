@@ -18,6 +18,7 @@ module.exports = async (app) => {
 
     const { message, status } = err;
 
+    res.setHeader("Access-Control-Allow-Credentials", "true");
     return res.status(status).send({ message });
   });
 }
