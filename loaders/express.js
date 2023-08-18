@@ -24,9 +24,9 @@ module.exports = (app) => {
   // Cookie parser
   app.use(cookieParser(SESSION_SECRET))
 
-  app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-  })
+  // app.use((req, res, next) => {
+  //   res.setHeader("Access-Control-Allow-Credentials", "true");
+  // })
 
   // Creates a session
   app.use(
