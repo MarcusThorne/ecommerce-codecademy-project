@@ -20,7 +20,6 @@ module.exports = (app) => {
         line_items: req.body.basketItems.map(item => {
           const storeItem = storeItems.rows.map(product => {
             if(item.id === product.id) {
-              console.log(product)
               return product
             }
           })

@@ -11,7 +11,6 @@ module.exports = (app) => {
   router.get('/:userId', async (req, res, next) => {
 
     try {
-      console.log('getting user')
       const { userId } = req.params;
 
       const response = await UserServiceInstance.get(userId);
@@ -24,8 +23,9 @@ module.exports = (app) => {
   router.put('/:userId', async (req, res, next) => {
     try {
       const response = await UserServiceInstance.update(req.body.updateInfo);
-      console.log("this is what is returning to react app " + response)
+      console.log(response)
       res.status(200).json(response);
+
     } catch (err) {
       next(err);
     }

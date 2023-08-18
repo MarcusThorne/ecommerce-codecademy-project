@@ -11,10 +11,9 @@ module.exports = (app) => {
   router.get('/', async (req, res, next) => {
 
     try {
-      console.log('getting products')
-
       const response = await ProductServiceInstance.get();
       res.status(200).json(response.data);
+
     } catch (err) {
       next(err);
     }

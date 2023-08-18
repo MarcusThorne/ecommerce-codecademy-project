@@ -26,7 +26,6 @@ module.exports = class AuthService {
       // User doesn't exist, create new user record
       await UserModelInstance.create({email, password: hashedPassword});
       const addedUser = await UserModelInstance.findOneByEmail(email);
-      console.log(addedUser.id)
 
       return {
         token, data: {

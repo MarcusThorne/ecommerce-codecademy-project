@@ -32,12 +32,13 @@ module.exports = class AuthService {
       const user = await UserModelInstance.findOneById(data.id)
 
       if (!user) {
+        console.log('no user?')
         res.status(401).json({ detail: 'No user with provided ID' })
         throw createError(401, 'No user with provided ID');
       }
 
       const updatedUser = await UserModelInstance.update(data)
-      console.log('return from await model instance is ' + updatedUser)
+      console.log(updatedUser)
 
       return {
         message: 'User succefully updated',

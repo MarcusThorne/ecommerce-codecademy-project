@@ -31,9 +31,9 @@ module.exports = class UserModel {
       const values = [data.first_name, data.last_name, data.mobile, data.address_name, data.address_street, data.address_county, data.postcode, data.country, data.id]
 
       // Execute SQL statment
-      const result = await db.query(statement, values);
+      await db.query(statement, values);
 
-      return { message: 'User updated' }
+      return
 
     } catch (err) {
       throw new Error(err);
