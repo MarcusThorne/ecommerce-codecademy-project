@@ -1,7 +1,6 @@
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const session = require('express-session');
-const session = require('cookie-session');
+const session = require('express-session');
 const { SESSION_SECRET } = require('../config');
 const cookieParser = require('cookie-parser')
 
@@ -33,7 +32,7 @@ module.exports = (app) => {
   app.use(
     session({
       secret: SESSION_SECRET,
-      resave: false,
+      resave: true,
       saveUninitialized: true,
       cookie: {
         secure: false,
@@ -41,13 +40,6 @@ module.exports = (app) => {
       }
     })
   );
-
-  app.use(function (req, res, next) {
-    if (!req.session) {
-      return next(new Error('Oh no')) //handle error
-    }
-    next() //otherwise continue
-  });
 
   return app;
 
