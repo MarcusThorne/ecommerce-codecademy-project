@@ -33,7 +33,7 @@ module.exports = (app) => {
   app.use(
     session({
       secret: SESSION_SECRET,
-      resave: true,
+      resave: false,
       saveUninitialized: true,
       cookie: {
         secure: false,
@@ -41,6 +41,13 @@ module.exports = (app) => {
       }
     })
   );
+
+  app.use(function (req, res, next) {
+    if (!req.session) {
+      return next(new Error('Oh no')) //handle error
+    }
+    next() //otherwise continue
+  });
 
   return app;
 
