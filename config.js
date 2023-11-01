@@ -5,7 +5,7 @@ module.exports = {
   DB: {
     PGHOST: process.env.PGHOST,
     PGUSER: process.env.PGUSER,
-    PGDATABASE: process.env.PGDATABASE,
+    PGDATABASE: process.env.DATABASE_URL,
     PGPASSWORD: process.env.PGPASSWORD,
     PGPORT: process.env.PGPORT
   },
